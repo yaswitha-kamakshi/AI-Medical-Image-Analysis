@@ -79,3 +79,19 @@ Transfer learning · handling class imbalance · medical metrics (recall, AUC) �
 
 ## License
 MIT
+
+## Author
+
+**Yaswitha Kamakshi**
+AI/ML learner | Computer Vision | Healthcare AI
+
+- GitHub: [@yaswitha-kamakshi](https://github.com/yaswitha-kamakshi)
+- LinkedIn: [www.linkedin.com/in/yaswitha-kamakshi-292b5242b]
+
+## Acknowledgements
+
+Thanks to my mentor **Umesh Yadav** for his guidance and feedback throughout this project.
+
+## Disclaimer
+
+Educational project only. Not a medical device and not for clinical use. Built on a public dataset.
