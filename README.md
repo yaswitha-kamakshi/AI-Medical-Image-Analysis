@@ -65,6 +65,14 @@ python main.py evaluate
 python main.py grid
 python main.py predict --image path/to/xray.jpeg
 ```
+## API demo
+```bash
+python app.py
+# in another terminal: POST an image to http://127.0.0.1:5000/predict (form key: "image")
+```
+Returns JSON with `prediction`, `probability_pneumonia` and `confidence`.
+
+![API demo](images/api_demo.png)
 
 ## Learning Outcomes
 Transfer learning · handling class imbalance · medical metrics (recall, AUC) · modular ML code · reproducible Git workflow.
