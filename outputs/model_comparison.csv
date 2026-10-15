@@ -1,0 +1,3 @@
+Model,Accuracy,Pneumonia recall,Pneumonia precision,NORMAL recall,ROC-AUC
+Baseline CNN,0.761,0.99,0.727,0.38,0.934
+MobileNetV2,0.861,0.987,0.824,0.65,0.968
