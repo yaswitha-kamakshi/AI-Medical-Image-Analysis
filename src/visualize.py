@@ -39,3 +39,20 @@ def show_preprocessing():
     plt.tight_layout()
     plt.savefig(OUTPUT_DIR / "preprocessing.png", dpi=150)
     plt.close()
+def prediction_grid(n_per_class=4):
+    """Actual vs predicted on test images. Green = correct, red = wrong."""
+    import tensorflow as tf
+    from src.predict import predict_image
+    model = tf.keras.models.load_model(MODEL_PATH)
+    cases = [(f, cls) for cls in CLASS_NAMES
+             for f in _random_files(TEST_DIR / cls, n_per_class)]
+    fig, axes = plt.subplots(2, n_per_class, figsize=(3.2 * n_per_class, 7))
+    for ax, (f, actual) in zip(axes.ravel(), cases):
+        label, conf, _ = predict_image(f, model)
+        ax.imshow(cv2.imread(str(f), 0), cmap="gray")
+        ax.axis("off")
+        ax.set_title(f"Actual: {actual}\nPred: {label} ({conf:.0%})", fontsize=9,
+                     color="green" if label == actual else "red")
+    plt.tight_layout()
+    plt.savefig(OUTPUT_DIR / "prediction_grid.png", dpi=150)
+    plt.close()
