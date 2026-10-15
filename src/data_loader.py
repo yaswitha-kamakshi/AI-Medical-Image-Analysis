@@ -6,7 +6,7 @@ from src.config import *
 def load_datasets():
     """Return train, validation and test datasets.
 
-    The Kaggle 'val' folder has only 16 images (too small to trust),
+    The Kaggle val folder has only 16 images (too small to trust),
     so we carve 20% of the training set as validation instead.
     """
     common = dict(image_size=IMG_SIZE, batch_size=BATCH_SIZE,
@@ -24,5 +24,7 @@ def load_datasets():
 
 
 def compute_class_weights():
-    """The dataset has ~3x more pneumonia than normal images.
-    Class weights stop the model from just
+    """Balance the classes: pneumonia images outnumber normal ones about 3 to 1."""
+    counts = [len(list((TRAIN_DIR / c).glob("*.jp*g"))) for c in CLASS_NAMES]
+    total = sum(counts)
+    return {i: total / (2 * n) for i, n in enumerate(counts)}
